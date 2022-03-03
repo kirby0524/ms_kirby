@@ -21,8 +21,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/posts/{post}', 'PostController@update');
     Route::get('/categories/{category}', 'CategoryController@index');
   
-    
-    
 }); 
    
     Auth::routes();

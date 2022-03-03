@@ -13,7 +13,13 @@ class Post extends Model
       use SoftDeletes;    
     
     
-      protected $fillable = ['title','event1','event2','event3','category_id'];
+      protected $fillable = [
+          'title',
+          'event1',
+          'event2',
+          'event3',
+          'category_id'
+          ];
     
     
     

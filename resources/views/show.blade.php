@@ -14,7 +14,7 @@
         <body style="background-color:rgb(255,240,245);">
         <h1>🌹Happy Garden🌹</h1>
          </br>
-          </br>
+         </br>
         <div class='post'>
             <h2>❁Date❁</h2>
             <h3 class='title'>{{ $post->title }}</h3>
@@ -50,7 +50,7 @@
                     }
              </script>
         <div class="back">[<a href='/'>❁戻る❁</a>]</div>
-         <p class='updated_at'>{{ $post->updated_at}}</p>
+        <p class='updated_at'>{{ $post->updated_at}}</p>
       
     </body>
 </html>

@@ -12,16 +12,15 @@ class PostController extends Controller
 {
         public function index(Post $post)
         {
-       
-        return view('index')->with([
-            'posts' => $post->getPaginateByLimit()
-             ]);
+        return view('index')->with(['posts' => Post::with('category')->get()]);
+             
         }
         
     
         public function show(Post $post)
         {
             return view('show')->with(['post' => $post]);
+            
         }
         
         
@@ -29,6 +28,7 @@ class PostController extends Controller
         {  
             return view('create')->with(['categories' => $category->get()]);
         }
+        
         
         
         public function store( Post $post,PostRequest $request)
@@ -39,17 +39,18 @@ class PostController extends Controller
             
         }
         
-        public function edit(Post $post)
+        public function edit(Post $post,Category $category)
         {
-            return view('edit')->with(['post' => $post]);
+            return view('edit')->with(['post' => $post, 'categories' => $category->get()]);
+    
         }
         
         public function update(Post $post,PostRequest $request)
         {
             $input_post = $request['post'];
             $post->fill($input_post)->save();
-        
             return redirect('/posts/' . $post->id);
+            
         }
             
         public function delete(Post $post)
@@ -57,6 +58,8 @@ class PostController extends Controller
             $post->delete();
             return redirect('/');
         }
+       
+        
        
        
 }
